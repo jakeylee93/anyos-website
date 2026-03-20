@@ -10,10 +10,14 @@ const SITES = [
   { name: 'NotAPrint', desc: 'Custom print & merchandise', url: 'https://notaprint-website.vercel.app', color: '#06b6d4', logo: '/case-studies/notaprint.png' },
   { name: 'JHD Builders', desc: 'Construction & property maintenance', url: 'https://jhd-website.vercel.app', color: '#6db44c', logo: '/case-studies/jhd.png' },
   { name: 'Conectados', desc: 'Community events for expats in Madrid', url: 'https://connect-cardos.vercel.app', color: '#F5B731' },
-  { name: 'Left Hand Lucy', desc: 'Freelance services', url: 'https://lefthandlucy-website.vercel.app', color: '#7B9E87' },
-  { name: 'Vishal Mayo', desc: 'Personal portfolio', url: 'https://vishalmayo-website.vercel.app', color: '#6366f1', logo: '/case-studies/vishal.jpg' },
+  { name: 'Left Hand Lucy', desc: 'Freelance services — teaching, events, support', url: 'https://lefthandlucy-website.vercel.app', color: '#7B9E87' },
+  { name: 'Vishal Mayo', desc: 'Personal portfolio website', url: 'https://vishalmayo-website.vercel.app', color: '#6366f1', logo: '/case-studies/vishal.jpg' },
   { name: 'Richway', desc: 'Property development', url: 'https://richway-website.vercel.app', color: '#c8956c', logo: '/case-studies/richway.png' },
-  { name: 'N2 Acoustics', desc: 'Premium acoustic panels & solutions', url: 'https://n2-acoustics.vercel.app', color: '#c8956c' },
+  { name: 'N2 Acoustics', desc: 'Premium acoustic panels & solutions', url: 'https://n2-acoustics.vercel.app', color: '#1a1a2e' },
+  { name: 'Bohemia London', desc: 'Curated second-hand store, Roman Road', url: 'https://www.bohemialondon.co.uk', color: '#8B6F47' },
+  { name: 'N2 Calculator', desc: 'Signage job costing & quoting tool', url: 'https://n2-calculator.vercel.app', color: '#4f46e5' },
+  { name: 'Mission Control', desc: 'AI-powered life operating system', url: 'https://mission-control-v6-anyos.vercel.app', color: '#FFD700' },
+  { name: 'AnyVendor', desc: 'Events industry marketplace', url: 'https://anyvendor.vercel.app', color: '#6366f1' },
 ]
 
 export default function Portfolio() {
