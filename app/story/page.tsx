@@ -17,6 +17,7 @@ const SLIDE_TITLES = [
   'Live Demo',
   'The Results',
   'Built with anyOS',
+  'anyOS for Estate Agents',
 ]
 
 const TOC_ITEMS = [
@@ -28,6 +29,7 @@ const TOC_ITEMS = [
   { num: '06', title: 'Live Demo', desc: '29 AI models and APIs with real prompts — see what it can do', slide: 11, color: '#7c3aed' },
   { num: '07', title: 'The Results', desc: 'Side-by-side: traditional approach vs anyOS — time and money saved', slide: 12, color: '#b91c1c' },
   { num: '08', title: 'Built with anyOS', desc: '15 live projects built by AI — real businesses, real results', slide: 13, color: '#059669' },
+  { num: '09', title: 'anyOS for Estate Agents', desc: 'How AI transforms property sales — voice-to-listing, automated emails, viewing management', slide: 14, color: '#06b6d4' },
 ]
 
 const INTEGRATIONS: Record<string, { name: string; desc: string; how: string; category: string }> = {
@@ -1522,6 +1524,82 @@ export default function Home() {
             <div className="key-stat" style={{marginTop:'3vh'}}>
               <p>11 websites. 11 different businesses. All built by one person with anyOS — in a fraction of the time and cost of traditional development.</p>
               <p className="stat-sub">Each link is live. Click any of them.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* SLIDE 14 — anyOS for Estate Agents */}
+      <div className={`slide-snap ${activeSlide === 14 ? "active" : ""}`}>
+        <div className="slide-page page10">
+          <div className="brand-header">
+            <div className="logo">any<span>OS</span></div>
+            <div className="header-right">
+              <span className="slide-counter">{activeSlide + 1} / {SLIDE_TITLES.length}</span>
+            </div>
+          </div>
+          <div className="era-content">
+            <h1 className="era-title" style={{fontSize:'clamp(2rem, 4vw, 3rem)'}}>anyOS for <span style={{color:'#06b6d4'}}>Estate Agents</span></h1>
+            <div className="era-period" style={{marginBottom:'2vh'}}>Sell more. Admin less. Your AI handles the rest.</div>
+
+            {/* Before / After */}
+            <div style={{width:'100%', maxWidth:'800px', margin:'0 auto 3vh', display:'flex', flexDirection:'column', gap:'8px'}}>
+              {[
+                { before: '45 mins writing one listing', after: 'Voice note → full listing in 2 minutes' },
+                { before: 'Manually emailing buyers one by one', after: 'AI matches & emails instantly on instruction' },
+                { before: 'Playing phone tag to arrange viewings', after: 'AI books, confirms & follows up automatically' },
+                { before: 'Hours creating market appraisal packs', after: 'Branded report generated in 30 seconds' },
+                { before: 'Chasing solicitors for chain updates', after: 'AI chases weekly and flags delays to you' },
+                { before: 'Losing leads from missed calls', after: 'Every missed call gets an instant follow-up text' },
+              ].map((p, i) => (
+                <div key={i} style={{
+                  display:'grid', gridTemplateColumns:'1fr auto 1fr', gap:'12px',
+                  alignItems:'center', padding:'10px 16px',
+                  background:'rgba(0,0,0,0.03)', borderRadius:'10px',
+                  border:'1px solid rgba(0,0,0,0.06)',
+                }}>
+                  <div style={{display:'flex', alignItems:'center', gap:'8px'}}>
+                    <span style={{color:'#ef4444', fontWeight:700, flexShrink:0}}>✕</span>
+                    <span style={{color:'#888', fontSize:'13px'}}>{p.before}</span>
+                  </div>
+                  <span style={{color:'#ccc', fontSize:'16px'}}>→</span>
+                  <div style={{display:'flex', alignItems:'center', gap:'8px'}}>
+                    <span style={{color:'#22c55e', fontWeight:700, flexShrink:0}}>✓</span>
+                    <span style={{color:'#2D3436', fontSize:'13px', fontWeight:600}}>{p.after}</span>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Feature pills */}
+            <div style={{display:'flex', flexWrap:'wrap', gap:'8px', justifyContent:'center', maxWidth:'800px', margin:'0 auto 3vh'}}>
+              {[
+                '🎙️ Voice-to-Listing',
+                '📧 Automated Email Campaigns',
+                '📅 Viewing Management',
+                '📊 Market Reports',
+                '⛓️ Chain Progression',
+                '🔒 AML Compliance',
+                '📱 Social Media Content',
+                '🌐 Custom Website',
+                '📞 Missed Call Follow-Up',
+                '📝 Offer Management',
+                '🏠 Portal Syndication',
+                '💰 Fee Tracking',
+              ].map((f, i) => (
+                <div key={i} style={{
+                  padding:'8px 16px', borderRadius:'20px',
+                  background:'rgba(6,182,212,0.08)', border:'1px solid rgba(6,182,212,0.2)',
+                  fontSize:'13px', fontWeight:600, color:'#06b6d4',
+                }}>
+                  {f}
+                </div>
+              ))}
+            </div>
+
+            <div className="key-stat">
+              <p>One AI system replaces half your tech stack and most of your admin. Listings, emails, viewings, compliance, marketing — all handled.</p>
+              <p className="stat-sub">Your agents focus on selling. anyOS handles everything else.</p>
             </div>
           </div>
         </div>
