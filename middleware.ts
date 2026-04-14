@@ -5,8 +5,11 @@ const COOKIE_NAME = 'anyos-auth'
 const COOKIE_VALUE = 'authenticated'
 
 export function middleware(request: NextRequest) {
-  // Allow the auth API route through
-  if (request.nextUrl.pathname === '/api/auth') {
+  // Allow the auth API route and public proposal pages through
+  if (
+    request.nextUrl.pathname === '/api/auth' ||
+    request.nextUrl.pathname.startsWith('/pukkapadelproposal')
+  ) {
     return NextResponse.next()
   }
 
