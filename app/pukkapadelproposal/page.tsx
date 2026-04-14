@@ -57,6 +57,33 @@ const ICONS: Record<string, React.ReactNode> = {
   multilang: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 8l6 6"/><path d="M4 14l6-6 2-3"/><path d="M2 5h12"/><path d="M7 2h1"/><path d="M22 22l-5-10-5 10"/><path d="M14 18h6"/></svg>,
 }
 
+const CAPABILITY_DETAILS: Record<string, string> = {
+  'Website Design': 'A fully bespoke, mobile-first website built from scratch to reflect the Pukka Padel brand. Fast loading, stunning visuals, and optimised for converting visitors into bookings.',
+  'Online Booking': 'Real-time court availability, time slot selection, online payments, recurring bookings, coaching sessions, and group events. Fully integrated with your calendar and staff schedules.',
+  'Social Automation': 'AI-powered content creation and scheduling across Instagram, Facebook, X, and TikTok. Auto-generates branded posts, stories, and reels using your photos and tone of voice.',
+  'Email Campaigns': 'Automated email flows for new members, lapsed players, event promotions, and seasonal offers. Personalised, branded, and triggered by customer behaviour.',
+  'SEO Optimisation': 'Local SEO strategy to ensure Pukka Padel ranks at the top of search results. Google Business optimisation, keyword targeting, meta tags, and structured data markup.',
+  'Live Analytics': 'Real-time dashboards showing website traffic, booking trends, revenue, social engagement, and email performance. Data-driven insights to help you grow.',
+  'AI Agents': 'Intelligent AI agents that handle repetitive tasks autonomously. From answering FAQs to managing bookings to processing enquiries, they work 24/7 without breaks.',
+  'Smart Chatbot': 'An AI-powered chatbot on your website that answers customer questions, helps with bookings, provides court availability, and escalates complex queries to your team.',
+  'Workflow Automation': 'Automate repetitive business processes: new booking confirmations, follow-up emails, review requests, payment reminders, and staff notifications. All hands-free.',
+  'CRM & Contacts': 'A customer relationship management system to track all members, leads, and interactions. Segment your audience, tag interests, and build meaningful relationships at scale.',
+  'Content Generation': 'AI-generated blog posts, social captions, email copy, and promotional materials tailored to your brand voice. Fresh content on autopilot to keep your audience engaged.',
+  'Lead Capture': 'Smart forms, pop-ups, and landing pages designed to capture visitor information. Automatically funnel leads into your CRM with follow-up sequences triggered instantly.',
+  'Auto Invoicing': 'Automatic invoice generation and sending for bookings, memberships, and services. Integrated with your payment processor for seamless reconciliation.',
+  'Review Management': 'Automated review request emails after visits, Google review monitoring, and reputation management tools. Build social proof and respond to feedback quickly.',
+  'Smart Reports': 'Weekly and monthly reports delivered automatically covering all key metrics. Revenue, bookings, marketing performance, and growth trends in one clean summary.',
+  'Staff Scheduling': 'Manage staff rotas, coaching schedules, and shift patterns. Automated notifications for upcoming shifts, easy swap requests, and availability tracking.',
+  'Push Notifications': 'Send targeted push notifications to your app or web users. Booking reminders, special offers, last-minute court availability, and event announcements.',
+  'Security & SSL': 'Enterprise-grade security with SSL encryption, DDoS protection, automated backups, and regular vulnerability scanning. Your data and your customers\' data stays safe.',
+  'Cloud Database': 'Scalable cloud database infrastructure that grows with your business. Fast, reliable, and automatically backed up. No data limits, no performance bottlenecks.',
+  'API Integrations': 'Connect with third-party tools like Stripe, Google Calendar, Mailchimp, WhatsApp, and more. Open API architecture means the system works with your existing tools.',
+  'Voice Assistant': 'Voice-enabled AI assistant for hands-free operation. Check bookings, get daily summaries, manage tasks, and control automations using natural language.',
+  'Payment Processing': 'Secure online payments via Stripe with support for cards, Apple Pay, Google Pay, and direct debit. Automatic receipts, refund handling, and financial reporting.',
+  'Loyalty Programs': 'Built-in loyalty and rewards system to keep members coming back. Points for bookings, referral bonuses, membership tiers, and exclusive member perks.',
+  'Multi-language': 'Reach a wider audience with multi-language support. Auto-translated content for your website, emails, and booking system to serve diverse communities.',
+}
+
 const CAPABILITIES = [
   { name: 'Website Design', icon: 'website', color: '#6366f1' },
   { name: 'Online Booking', icon: 'booking', color: '#8b5cf6' },
@@ -330,6 +357,7 @@ export default function PukkaProposal() {
   const [formData, setFormData] = useState({ name: '', email: '', phone: '', plan: '', message: '' })
   const [formSubmitted, setFormSubmitted] = useState(false)
   const [activeFeature, setActiveFeature] = useState<string | null>(null)
+  const [activeCapability, setActiveCapability] = useState<string | null>(null)
 
   useEffect(() => {
     const handler = (e: MouseEvent) => setMousePos({ x: e.clientX, y: e.clientY })
@@ -486,25 +514,29 @@ export default function PukkaProposal() {
           <div style={{ position: 'relative', marginBottom: '12px' }}>
             <div style={{ display: 'flex', animation: 'marqueeLeft 40s linear infinite', width: 'max-content' }}>
               {[...CAPABILITIES.slice(0, 12), ...CAPABILITIES.slice(0, 12)].map((cap, i) => (
-                <div key={`r1-${i}`} style={{
-                  display: 'flex', alignItems: 'center', gap: '10px',
-                  padding: '0.75rem 1.25rem', marginRight: '12px',
-                  borderRadius: '12px',
-                  background: 'rgba(255,255,255,0.03)',
-                  border: '1px solid rgba(255,255,255,0.06)',
-                  flexShrink: 0,
-                  transition: 'border-color 0.3s, background 0.3s, box-shadow 0.3s',
-                }}
-                onMouseEnter={e => {
-                  e.currentTarget.style.borderColor = `${cap.color}50`
-                  e.currentTarget.style.background = `${cap.color}10`
-                  e.currentTarget.style.boxShadow = `0 0 30px ${cap.color}20`
-                }}
-                onMouseLeave={e => {
-                  e.currentTarget.style.borderColor = 'rgba(255,255,255,0.06)'
-                  e.currentTarget.style.background = 'rgba(255,255,255,0.03)'
-                  e.currentTarget.style.boxShadow = 'none'
-                }}
+                <div key={`r1-${i}`}
+                  onClick={() => setActiveCapability(cap.name)}
+                  style={{
+                    display: 'flex', alignItems: 'center', gap: '10px',
+                    padding: '0.75rem 1.25rem', marginRight: '12px',
+                    borderRadius: '12px',
+                    background: 'rgba(255,255,255,0.03)',
+                    border: '1px solid rgba(255,255,255,0.06)',
+                    flexShrink: 0, cursor: 'pointer',
+                    transition: 'border-color 0.3s, background 0.3s, box-shadow 0.3s, transform 0.2s',
+                  }}
+                  onMouseEnter={e => {
+                    e.currentTarget.style.borderColor = `${cap.color}50`
+                    e.currentTarget.style.background = `${cap.color}10`
+                    e.currentTarget.style.boxShadow = `0 0 30px ${cap.color}20`
+                    e.currentTarget.style.transform = 'scale(1.05)'
+                  }}
+                  onMouseLeave={e => {
+                    e.currentTarget.style.borderColor = 'rgba(255,255,255,0.06)'
+                    e.currentTarget.style.background = 'rgba(255,255,255,0.03)'
+                    e.currentTarget.style.boxShadow = 'none'
+                    e.currentTarget.style.transform = 'scale(1)'
+                  }}
                 >
                   <div style={{ width: 20, height: 20, color: cap.color, flexShrink: 0 }}>
                     {ICONS[cap.icon]}
@@ -521,25 +553,29 @@ export default function PukkaProposal() {
           <div style={{ position: 'relative' }}>
             <div style={{ display: 'flex', animation: 'marqueeRight 45s linear infinite', width: 'max-content' }}>
               {[...CAPABILITIES.slice(12), ...CAPABILITIES.slice(12)].map((cap, i) => (
-                <div key={`r2-${i}`} style={{
-                  display: 'flex', alignItems: 'center', gap: '10px',
-                  padding: '0.75rem 1.25rem', marginRight: '12px',
-                  borderRadius: '12px',
-                  background: 'rgba(255,255,255,0.03)',
-                  border: '1px solid rgba(255,255,255,0.06)',
-                  flexShrink: 0,
-                  transition: 'border-color 0.3s, background 0.3s, box-shadow 0.3s',
-                }}
-                onMouseEnter={e => {
-                  e.currentTarget.style.borderColor = `${cap.color}50`
-                  e.currentTarget.style.background = `${cap.color}10`
-                  e.currentTarget.style.boxShadow = `0 0 30px ${cap.color}20`
-                }}
-                onMouseLeave={e => {
-                  e.currentTarget.style.borderColor = 'rgba(255,255,255,0.06)'
-                  e.currentTarget.style.background = 'rgba(255,255,255,0.03)'
-                  e.currentTarget.style.boxShadow = 'none'
-                }}
+                <div key={`r2-${i}`}
+                  onClick={() => setActiveCapability(cap.name)}
+                  style={{
+                    display: 'flex', alignItems: 'center', gap: '10px',
+                    padding: '0.75rem 1.25rem', marginRight: '12px',
+                    borderRadius: '12px',
+                    background: 'rgba(255,255,255,0.03)',
+                    border: '1px solid rgba(255,255,255,0.06)',
+                    flexShrink: 0, cursor: 'pointer',
+                    transition: 'border-color 0.3s, background 0.3s, box-shadow 0.3s, transform 0.2s',
+                  }}
+                  onMouseEnter={e => {
+                    e.currentTarget.style.borderColor = `${cap.color}50`
+                    e.currentTarget.style.background = `${cap.color}10`
+                    e.currentTarget.style.boxShadow = `0 0 30px ${cap.color}20`
+                    e.currentTarget.style.transform = 'scale(1.05)'
+                  }}
+                  onMouseLeave={e => {
+                    e.currentTarget.style.borderColor = 'rgba(255,255,255,0.06)'
+                    e.currentTarget.style.background = 'rgba(255,255,255,0.03)'
+                    e.currentTarget.style.boxShadow = 'none'
+                    e.currentTarget.style.transform = 'scale(1)'
+                  }}
                 >
                   <div style={{ width: 20, height: 20, color: cap.color, flexShrink: 0 }}>
                     {ICONS[cap.icon]}
@@ -974,6 +1010,78 @@ export default function PukkaProposal() {
         </footer>
 
       </div>
+
+      {/* ═══════ CAPABILITY MODAL ═══════ */}
+      {activeCapability && CAPABILITY_DETAILS[activeCapability] && (() => {
+        const cap = CAPABILITIES.find(c => c.name === activeCapability)
+        const color = cap?.color || '#6366f1'
+        const icon = cap ? ICONS[cap.icon] : null
+        return (
+          <div
+            onClick={() => setActiveCapability(null)}
+            style={{
+              position: 'fixed', inset: 0, zIndex: 100,
+              background: 'rgba(0,0,0,0.7)',
+              backdropFilter: 'blur(12px)',
+              display: 'flex', alignItems: 'center', justifyContent: 'center',
+              padding: '2rem',
+              animation: 'fadeIn 0.2s ease',
+            }}
+          >
+            <div
+              onClick={e => e.stopPropagation()}
+              style={{
+                background: '#0f0f14',
+                border: `1px solid ${color}30`,
+                borderRadius: '20px',
+                padding: '2.5rem',
+                maxWidth: '520px', width: '100%',
+                boxShadow: `0 0 80px ${color}20`,
+                animation: 'popIn 0.3s cubic-bezier(.16,1,.3,1)',
+                position: 'relative',
+              }}
+            >
+              <button
+                onClick={() => setActiveCapability(null)}
+                style={{
+                  position: 'absolute', top: 16, right: 16,
+                  background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)',
+                  borderRadius: '8px', width: 32, height: 32,
+                  display: 'flex', alignItems: 'center', justifyContent: 'center',
+                  cursor: 'pointer', color: 'rgba(255,255,255,0.4)',
+                  transition: 'background 0.2s',
+                }}
+                onMouseEnter={e => e.currentTarget.style.background = 'rgba(255,255,255,0.1)'}
+                onMouseLeave={e => e.currentTarget.style.background = 'rgba(255,255,255,0.05)'}
+              >
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" style={{ width: 16, height: 16 }}>
+                  <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+                </svg>
+              </button>
+              <div style={{
+                width: 48, height: 48, borderRadius: '12px',
+                background: `${color}15`, border: `1px solid ${color}30`,
+                display: 'flex', alignItems: 'center', justifyContent: 'center',
+                marginBottom: '1.25rem', color: color,
+              }}>
+                <div style={{ width: 24, height: 24 }}>{icon}</div>
+              </div>
+              <h3 style={{
+                fontFamily: "'Space Grotesk', sans-serif",
+                fontSize: '1.35rem', fontWeight: 700, marginBottom: '1rem',
+                letterSpacing: '-0.02em', lineHeight: 1.3,
+              }}>
+                {activeCapability}
+              </h3>
+              <p style={{
+                color: 'rgba(255,255,255,0.5)', fontSize: '0.9rem', lineHeight: 1.8, margin: 0,
+              }}>
+                {CAPABILITY_DETAILS[activeCapability]}
+              </p>
+            </div>
+          </div>
+        )
+      })()}
 
       {/* ═══════ FEATURE DETAIL MODAL ═══════ */}
       {activeFeature && FEATURE_DETAILS[activeFeature] && (
