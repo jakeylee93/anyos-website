@@ -14,17 +14,15 @@ export default function Footer() {
         </div>
         <div>
           <div style={{ color: 'white', fontSize: '0.75rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '0.75rem' }}>Product</div>
-          <Link href="/use-cases" style={{ display: 'block', color: 'rgba(255,255,255,0.3)', textDecoration: 'none', fontSize: '0.8rem', marginBottom: '0.4rem' }}>Use Cases</Link>
           <Link href="/pricing" style={{ display: 'block', color: 'rgba(255,255,255,0.3)', textDecoration: 'none', fontSize: '0.8rem', marginBottom: '0.4rem' }}>Pricing</Link>
           <Link href="/story" style={{ display: 'block', color: 'rgba(255,255,255,0.3)', textDecoration: 'none', fontSize: '0.8rem', marginBottom: '0.4rem' }}>The Story</Link>
-          <Link href="/portfolio" style={{ display: 'block', color: 'rgba(255,255,255,0.3)', textDecoration: 'none', fontSize: '0.8rem' }}>Portfolio</Link>
+          <Link href="/portfolio" style={{ display: 'block', color: 'rgba(255,255,255,0.3)', textDecoration: 'none', fontSize: '0.8rem', marginBottom: '0.4rem' }}>Portfolio</Link>
+          <Link href="/contact" style={{ display: 'block', color: 'rgba(255,255,255,0.3)', textDecoration: 'none', fontSize: '0.8rem' }}>Contact</Link>
         </div>
         <div>
-          <div style={{ color: 'white', fontSize: '0.75rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '0.75rem' }}>Use Cases</div>
-          <Link href="/use-cases#print" style={{ display: 'block', color: 'rgba(255,255,255,0.3)', textDecoration: 'none', fontSize: '0.8rem', marginBottom: '0.4rem' }}>Print & Production</Link>
-          <Link href="/use-cases#construction" style={{ display: 'block', color: 'rgba(255,255,255,0.3)', textDecoration: 'none', fontSize: '0.8rem', marginBottom: '0.4rem' }}>Construction</Link>
-          <Link href="/use-cases#care" style={{ display: 'block', color: 'rgba(255,255,255,0.3)', textDecoration: 'none', fontSize: '0.8rem', marginBottom: '0.4rem' }}>Care Homes</Link>
-          <Link href="/use-cases#hospitality" style={{ display: 'block', color: 'rgba(255,255,255,0.3)', textDecoration: 'none', fontSize: '0.8rem' }}>Hospitality</Link>
+          <div style={{ color: 'white', fontSize: '0.75rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '0.75rem' }}>Industries</div>
+          <Link href="/estate-agents" style={{ display: 'block', color: 'rgba(255,255,255,0.3)', textDecoration: 'none', fontSize: '0.8rem', marginBottom: '0.4rem' }}>Estate Agents</Link>
+          <Link href="/use-cases" style={{ display: 'block', color: 'rgba(255,255,255,0.3)', textDecoration: 'none', fontSize: '0.8rem' }}>Use Cases</Link>
         </div>
         <div>
           <div style={{ color: 'white', fontSize: '0.75rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '0.75rem' }}>Contact</div>
@@ -33,7 +31,7 @@ export default function Footer() {
         </div>
       </div>
       <div style={{ maxWidth: '1100px', margin: '3rem auto 0', paddingTop: '1.5rem', borderTop: '1px solid rgba(255,255,255,0.06)', display: 'flex', justifyContent: 'space-between', fontSize: '0.7rem' }}>
-        <span>© 2026 anyOS</span>
+        <span>&copy; 2026 anyOS</span>
         <span>Powered by OpenClaw</span>
       </div>
     </footer>

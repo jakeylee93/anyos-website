@@ -8,7 +8,7 @@ export function middleware(request: NextRequest) {
   // Allow the auth API route and public proposal pages through
   if (
     request.nextUrl.pathname === '/api/auth' ||
-    request.nextUrl.pathname.startsWith('/pukkapadelproposal')
+    request.nextUrl.pathname.startsWith('/proposal')
   ) {
     return NextResponse.next()
   }
