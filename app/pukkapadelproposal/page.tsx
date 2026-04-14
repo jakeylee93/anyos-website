@@ -85,6 +85,105 @@ const CAPABILITIES = [
 ]
 
 /* ───────── data ───────── */
+const FEATURE_DETAILS: Record<string, { title: string; detail: string }> = {
+  'Custom website design & build': {
+    title: 'Custom Website Design & Build',
+    detail: 'A fully bespoke website designed from scratch to match Pukka Padel\'s brand identity. Mobile-first responsive design, fast loading speeds, modern UI/UX, and built on enterprise-grade technology. Includes homepage, about, services, gallery, contact, and any custom pages you need.',
+  },
+  'Online booking platform': {
+    title: 'Online Booking Platform',
+    detail: 'A complete court booking system where customers can view availability in real time, select their preferred time slots, and pay online. Includes recurring bookings, group sessions, coaching slots, and automated confirmation emails. Fully integrated with your calendar.',
+  },
+  'Hosting, SSL & domain management': {
+    title: 'Hosting, SSL & Domain Management',
+    detail: 'Enterprise-grade cloud hosting with 99.9% uptime guarantee. Free SSL certificate for secure connections, CDN for fast global loading, automatic scaling during peak traffic, and full domain management including DNS configuration.',
+  },
+  'Automated social media content': {
+    title: 'Automated Social Media Content',
+    detail: 'AI-powered social media management that creates, schedules, and publishes content across Instagram, Facebook, Twitter/X, and TikTok. Generates branded posts, stories, and reels using your photos and brand guidelines. Includes hashtag strategy, optimal posting times, and engagement tracking.',
+  },
+  'Automated email campaigns': {
+    title: 'Automated Email Campaigns',
+    detail: 'Intelligent email marketing that runs on autopilot. Welcome sequences for new members, re-engagement campaigns for lapsed players, promotional blasts for events and offers, birthday emails, and post-visit follow-ups. All branded and personalised with dynamic content.',
+  },
+  'Monthly analytics reports': {
+    title: 'Monthly Analytics Reports',
+    detail: 'Comprehensive monthly reports covering website traffic, booking patterns, social media performance, email open rates, revenue trends, and customer behaviour insights. Delivered as a clean dashboard with actionable recommendations for growth.',
+  },
+  'Priority support & updates': {
+    title: 'Priority Support & Updates',
+    detail: 'Dedicated support channel with same-day response times. Regular platform updates, new feature rollouts, design refreshes, and content updates all included. You never have to worry about maintenance or keeping things current.',
+  },
+  'Security patches & backups': {
+    title: 'Security Patches & Backups',
+    detail: 'Automated daily backups with 30-day retention. Real-time security monitoring, automatic vulnerability patching, DDoS protection, and regular security audits. Your data and your customers\' data stay safe at all times.',
+  },
+  'Full platform build & design': {
+    title: 'Full Platform Build & Design',
+    detail: 'Everything from the Managed option, built as a standalone system you own outright. Complete website, booking platform, and automation tools, all designed and developed to Pukka Padel\'s exact specifications. Built with clean, documented code that any developer can maintain.',
+  },
+  'Website + booking system': {
+    title: 'Website + Booking System',
+    detail: 'A fully integrated website with embedded booking engine. Customers book and pay directly on your site with no third-party redirects. Includes court management, pricing tiers, membership handling, promo codes, and a staff admin panel for manual bookings.',
+  },
+  'Social media automation setup': {
+    title: 'Social Media Automation Setup',
+    detail: 'We configure and deploy your entire social media automation pipeline. AI content generation trained on your brand voice, scheduling tools, cross-platform publishing, analytics dashboards, and a content calendar. You\'ll have everything ready to run independently.',
+  },
+  'Email marketing automation': {
+    title: 'Email Marketing Automation',
+    detail: 'Full email automation system configured and handed over. Customer segmentation, trigger-based flows (welcome, re-engagement, post-visit), template library, A/B testing setup, and integration with your booking system for personalised communications.',
+  },
+  'Complete source code handover': {
+    title: 'Complete Source Code Handover',
+    detail: 'You receive the entire codebase via a private GitHub repository. Clean, well-documented code with README files, deployment guides, and architecture documentation. You can modify, extend, or hire any developer to work on it. No vendor lock-in.',
+  },
+  'Database & hosting ownership': {
+    title: 'Database & Hosting Ownership',
+    detail: 'Your database, your servers, your data. We set up hosting on your preferred provider (or recommend one), migrate everything, and hand over all credentials. You control your own infrastructure and can scale as needed.',
+  },
+  'Documentation & setup guide': {
+    title: 'Documentation & Setup Guide',
+    detail: 'A comprehensive setup guide covering every aspect of the system: how to deploy updates, manage bookings, update content, run email campaigns, troubleshoot common issues, and maintain security. Written in plain English, not developer jargon.',
+  },
+  'Transition support (30 days)': {
+    title: 'Transition Support (30 Days)',
+    detail: '30 days of dedicated support after handover to ensure a smooth transition. Includes bug fixes, questions, minor adjustments, and a weekly check-in call. After 30 days, optional ongoing support packages are available.',
+  },
+  'Everything in Client-Owned': {
+    title: 'Everything in Client-Owned',
+    detail: 'All features from the Client-Owned System option are included as standard. Full platform build, website, booking, social media automation, email marketing, source code, database ownership, documentation, and transition support.',
+  },
+  'MacBook Pro (configured & ready)': {
+    title: 'MacBook Pro (Configured & Ready)',
+    detail: 'A brand new MacBook Pro pre-configured with all the tools you need to manage and maintain the platform. Development environment, admin dashboards, analytics tools, content management, and AI automation tools all set up and ready to use out of the box.',
+  },
+  '3 days in-person training with Jake': {
+    title: '3 Days In-Person Training with Jake',
+    detail: 'Three full days of hands-on training at your location. Day 1: Platform overview, admin panel, and booking management. Day 2: Social media automation, email campaigns, and content creation. Day 3: Troubleshooting, advanced features, and Q&A. Your team will be fully self-sufficient by the end.',
+  },
+  'Complete system handbook': {
+    title: 'Complete System Handbook',
+    detail: 'A printed and digital handbook covering every aspect of the system in detail. Step-by-step guides with screenshots, troubleshooting flowcharts, FAQ sections, and quick-reference cards. Your operational bible for running the platform day to day.',
+  },
+  'Operational playbook': {
+    title: 'Operational Playbook',
+    detail: 'A strategic guide covering daily, weekly, and monthly tasks to keep everything running smoothly. Social media content calendars, email campaign schedules, analytics review checklists, and growth strategies. Think of it as your digital operations manual.',
+  },
+  'Staff training materials': {
+    title: 'Staff Training Materials',
+    detail: 'Training resources designed for your team members who will use the system day to day. Video walkthroughs, cheat sheets, and role-specific guides (front desk, marketing, management). New staff can get up to speed quickly without needing external support.',
+  },
+  'Emergency support line (90 days)': {
+    title: 'Emergency Support Line (90 Days)',
+    detail: 'A dedicated emergency support line for the first 90 days after launch. If anything breaks or you hit a wall, you can reach us directly for immediate assistance. Covers critical bugs, downtime issues, and urgent technical questions.',
+  },
+  'Quarterly check-in calls (1 year)': {
+    title: 'Quarterly Check-in Calls (1 Year)',
+    detail: 'Four scheduled video calls over the first year to review performance, discuss optimisations, and plan next steps. We\'ll look at analytics together, suggest improvements, and help you get the most out of the platform as your business grows.',
+  },
+}
+
 const OPTIONS = [
   {
     id: 1,
@@ -231,6 +330,7 @@ export default function PukkaProposal() {
   const [showForm, setShowForm] = useState(false)
   const [formData, setFormData] = useState({ name: '', email: '', phone: '', plan: '', message: '' })
   const [formSubmitted, setFormSubmitted] = useState(false)
+  const [activeFeature, setActiveFeature] = useState<string | null>(null)
 
   useEffect(() => {
     const handler = (e: MouseEvent) => setMousePos({ x: e.clientX, y: e.clientY })
@@ -565,15 +665,26 @@ export default function PukkaProposal() {
 
                     <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 1.5rem', flex: 1 }}>
                       {opt.features.map((f, j) => (
-                        <li key={j} style={{
-                          display: 'flex', alignItems: 'flex-start', gap: '10px',
-                          fontSize: '0.8rem', color: 'rgba(255,255,255,0.55)',
-                          padding: '0.4rem 0', lineHeight: 1.5,
-                        }}>
+                        <li
+                          key={j}
+                          onClick={() => setActiveFeature(f)}
+                          style={{
+                            display: 'flex', alignItems: 'flex-start', gap: '10px',
+                            fontSize: '0.8rem', color: 'rgba(255,255,255,0.55)',
+                            padding: '0.5rem 0.5rem', lineHeight: 1.5,
+                            cursor: 'pointer', borderRadius: '8px',
+                            transition: 'background 0.2s, color 0.2s',
+                          }}
+                          onMouseEnter={e => { e.currentTarget.style.background = `${opt.accent}10`; e.currentTarget.style.color = 'rgba(255,255,255,0.85)' }}
+                          onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = 'rgba(255,255,255,0.55)' }}
+                        >
                           <svg viewBox="0 0 24 24" fill="none" stroke={opt.accent} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ width: 14, height: 14, flexShrink: 0, marginTop: 2 }}>
                             <polyline points="20 6 9 17 4 12" />
                           </svg>
-                          {f}
+                          <span style={{ flex: 1 }}>{f}</span>
+                          <svg viewBox="0 0 24 24" fill="none" stroke={opt.accent} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ width: 12, height: 12, flexShrink: 0, marginTop: 3, opacity: 0.4 }}>
+                            <circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/>
+                          </svg>
                         </li>
                       ))}
                     </ul>
@@ -876,6 +987,75 @@ export default function PukkaProposal() {
         </footer>
 
       </div>
+
+      {/* ═══════ FEATURE DETAIL MODAL ═══════ */}
+      {activeFeature && FEATURE_DETAILS[activeFeature] && (
+        <div
+          onClick={() => setActiveFeature(null)}
+          style={{
+            position: 'fixed', inset: 0, zIndex: 100,
+            background: 'rgba(0,0,0,0.7)',
+            backdropFilter: 'blur(12px)',
+            display: 'flex', alignItems: 'center', justifyContent: 'center',
+            padding: '2rem',
+            animation: 'fadeIn 0.2s ease',
+          }}
+        >
+          <div
+            onClick={e => e.stopPropagation()}
+            style={{
+              background: '#0f0f14',
+              border: '1px solid rgba(99,102,241,0.2)',
+              borderRadius: '20px',
+              padding: '2.5rem',
+              maxWidth: '520px', width: '100%',
+              boxShadow: '0 0 80px rgba(99,102,241,0.15)',
+              animation: 'popIn 0.3s cubic-bezier(.16,1,.3,1)',
+              position: 'relative',
+            }}
+          >
+            <button
+              onClick={() => setActiveFeature(null)}
+              style={{
+                position: 'absolute', top: 16, right: 16,
+                background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)',
+                borderRadius: '8px', width: 32, height: 32,
+                display: 'flex', alignItems: 'center', justifyContent: 'center',
+                cursor: 'pointer', color: 'rgba(255,255,255,0.4)',
+                transition: 'background 0.2s',
+              }}
+              onMouseEnter={e => e.currentTarget.style.background = 'rgba(255,255,255,0.1)'}
+              onMouseLeave={e => e.currentTarget.style.background = 'rgba(255,255,255,0.05)'}
+            >
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" style={{ width: 16, height: 16 }}>
+                <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+              </svg>
+            </button>
+            <div style={{
+              width: 48, height: 48, borderRadius: '12px',
+              background: 'rgba(99,102,241,0.1)', border: '1px solid rgba(99,102,241,0.2)',
+              display: 'flex', alignItems: 'center', justifyContent: 'center',
+              marginBottom: '1.25rem',
+            }}>
+              <svg viewBox="0 0 24 24" fill="none" stroke="#6366f1" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ width: 24, height: 24 }}>
+                <polyline points="20 6 9 17 4 12" />
+              </svg>
+            </div>
+            <h3 style={{
+              fontFamily: "'Space Grotesk', sans-serif",
+              fontSize: '1.35rem', fontWeight: 700, marginBottom: '1rem',
+              letterSpacing: '-0.02em', lineHeight: 1.3,
+            }}>
+              {FEATURE_DETAILS[activeFeature].title}
+            </h3>
+            <p style={{
+              color: 'rgba(255,255,255,0.5)', fontSize: '0.9rem', lineHeight: 1.8, margin: 0,
+            }}>
+              {FEATURE_DETAILS[activeFeature].detail}
+            </p>
+          </div>
+        </div>
+      )}
 
       {/* ═══════ FORM MODAL ═══════ */}
       {showForm && (
