@@ -725,7 +725,7 @@ export default function Home() {
     window.scrollTo(0, 0)
   }, [])
   const goNext = useCallback(() => {
-    setActiveSlide(s => Math.min(12, s + 1))
+    setActiveSlide(s => Math.min(SLIDE_TITLES.length - 1, s + 1))
     window.scrollTo(0, 0)
   }, [])
 
@@ -772,7 +772,7 @@ export default function Home() {
         ) : activeSlide <= 7 ? (
           <Timeline active={activeSlide < 6 ? activeSlide : 6} />
         ) : (
-          <Progress page={activeSlide + 1} total={13} />
+          <Progress page={activeSlide + 1} total={SLIDE_TITLES.length} />
         )}
       </div>
       <div className="slides-container" onTouchStart={onTouchStart} onTouchEnd={onTouchEnd}>
@@ -1531,19 +1531,30 @@ export default function Home() {
 
       {/* SLIDE 14 — anyOS for Estate Agents */}
       <div className={`slide-snap ${activeSlide === 14 ? "active" : ""}`}>
-        <div className="slide-page page10">
-          <div className="brand-header">
-            <div className="logo">any<span>OS</span></div>
+        <div className="slide-page" style={{background:'linear-gradient(135deg, #0c1d36 0%, #0a1628 50%, #0d1f3c 100%)', color:'white', position:'relative', overflow:'hidden'}}>
+          {/* Background elements */}
+          <div style={{position:'absolute', top:'-10%', right:'-10%', width:'50vw', height:'50vw', background:'radial-gradient(circle, rgba(6,182,212,0.08), transparent 70%)', borderRadius:'50%', pointerEvents:'none'}} />
+          <div style={{position:'absolute', bottom:'-10%', left:'-10%', width:'40vw', height:'40vw', background:'radial-gradient(circle, rgba(99,102,241,0.06), transparent 70%)', borderRadius:'50%', pointerEvents:'none'}} />
+          <div style={{position:'absolute', inset:0, opacity:0.03, backgroundImage:'radial-gradient(circle, white 1px, transparent 1px)', backgroundSize:'24px 24px', pointerEvents:'none'}} />
+
+          <div className="brand-header" style={{position:'relative', zIndex:1}}>
+            <div className="logo" style={{color:'white'}}>any<span>OS</span></div>
             <div className="header-right">
-              <span className="slide-counter">{activeSlide + 1} / {SLIDE_TITLES.length}</span>
+              <span className="slide-counter" style={{color:'rgba(255,255,255,0.5)'}}>{activeSlide + 1} / {SLIDE_TITLES.length}</span>
             </div>
           </div>
-          <div className="era-content">
-            <h1 className="era-title" style={{fontSize:'clamp(2rem, 4vw, 3rem)'}}>anyOS for <span style={{color:'#06b6d4'}}>Estate Agents</span></h1>
-            <div className="era-period" style={{marginBottom:'2vh'}}>Sell more. Admin less. Your AI handles the rest.</div>
 
-            {/* Before / After */}
-            <div style={{width:'100%', maxWidth:'800px', margin:'0 auto 3vh', display:'flex', flexDirection:'column', gap:'8px'}}>
+          <div style={{position:'relative', zIndex:1, display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'center', flex:1, padding:'2vh 2rem', maxWidth:1000, margin:'0 auto', width:'100%'}}>
+            <div style={{display:'inline-block', padding:'0.35rem 1rem', borderRadius:20, background:'rgba(6,182,212,0.15)', border:'1px solid rgba(6,182,212,0.3)', fontSize:'0.65rem', fontWeight:700, color:'#06b6d4', letterSpacing:'0.15em', textTransform:'uppercase', marginBottom:'1.5vh'}}>
+              Built for Property
+            </div>
+            <h1 style={{fontSize:'clamp(2.2rem, 5vw, 3.5rem)', fontWeight:800, textAlign:'center', lineHeight:1.1, marginBottom:'1vh', fontFamily:"'Space Grotesk', sans-serif"}}>
+              anyOS for <span style={{background:'linear-gradient(135deg, #06b6d4, #22d3ee)', WebkitBackgroundClip:'text', WebkitTextFillColor:'transparent'}}>Estate Agents</span>
+            </h1>
+            <p style={{color:'rgba(255,255,255,0.4)', fontSize:'1rem', textAlign:'center', marginBottom:'3vh'}}>Sell more. Admin less. Your AI handles everything else.</p>
+
+            {/* Before / After — dark theme */}
+            <div style={{width:'100%', display:'flex', flexDirection:'column', gap:'6px', marginBottom:'3vh'}}>
               {[
                 { before: '45 mins writing one listing', after: 'Voice note → full listing in 2 minutes' },
                 { before: 'Manually emailing buyers one by one', after: 'AI matches & emails instantly on instruction' },
@@ -1554,52 +1565,50 @@ export default function Home() {
               ].map((p, i) => (
                 <div key={i} style={{
                   display:'grid', gridTemplateColumns:'1fr auto 1fr', gap:'12px',
-                  alignItems:'center', padding:'10px 16px',
-                  background:'rgba(0,0,0,0.03)', borderRadius:'10px',
-                  border:'1px solid rgba(0,0,0,0.06)',
+                  alignItems:'center', padding:'12px 18px',
+                  background:'rgba(255,255,255,0.04)', borderRadius:'12px',
+                  border:'1px solid rgba(255,255,255,0.08)',
                 }}>
-                  <div style={{display:'flex', alignItems:'center', gap:'8px'}}>
-                    <span style={{color:'#ef4444', fontWeight:700, flexShrink:0}}>✕</span>
-                    <span style={{color:'#888', fontSize:'13px'}}>{p.before}</span>
+                  <div style={{display:'flex', alignItems:'center', gap:'10px'}}>
+                    <span style={{color:'#ef4444', fontSize:'14px', fontWeight:700, flexShrink:0, width:20, height:20, borderRadius:'50%', background:'rgba(239,68,68,0.15)', display:'flex', alignItems:'center', justifyContent:'center'}}>✕</span>
+                    <span style={{color:'rgba(255,255,255,0.45)', fontSize:'13px'}}>{p.before}</span>
                   </div>
-                  <span style={{color:'#ccc', fontSize:'16px'}}>→</span>
-                  <div style={{display:'flex', alignItems:'center', gap:'8px'}}>
-                    <span style={{color:'#22c55e', fontWeight:700, flexShrink:0}}>✓</span>
-                    <span style={{color:'#2D3436', fontSize:'13px', fontWeight:600}}>{p.after}</span>
+                  <span style={{color:'rgba(255,255,255,0.15)', fontSize:'18px'}}>→</span>
+                  <div style={{display:'flex', alignItems:'center', gap:'10px'}}>
+                    <span style={{color:'#22c55e', fontSize:'14px', fontWeight:700, flexShrink:0, width:20, height:20, borderRadius:'50%', background:'rgba(34,197,94,0.15)', display:'flex', alignItems:'center', justifyContent:'center'}}>✓</span>
+                    <span style={{color:'white', fontSize:'13px', fontWeight:600}}>{p.after}</span>
                   </div>
                 </div>
               ))}
             </div>
 
-            {/* Feature pills */}
-            <div style={{display:'flex', flexWrap:'wrap', gap:'8px', justifyContent:'center', maxWidth:'800px', margin:'0 auto 3vh'}}>
+            {/* Feature pills — glowing */}
+            <div style={{display:'flex', flexWrap:'wrap', gap:'8px', justifyContent:'center', marginBottom:'3vh'}}>
               {[
-                '🎙️ Voice-to-Listing',
-                '📧 Automated Email Campaigns',
-                '📅 Viewing Management',
-                '📊 Market Reports',
-                '⛓️ Chain Progression',
-                '🔒 AML Compliance',
-                '📱 Social Media Content',
-                '🌐 Custom Website',
-                '📞 Missed Call Follow-Up',
-                '📝 Offer Management',
-                '🏠 Portal Syndication',
-                '💰 Fee Tracking',
+                '🎙️ Voice-to-Listing', '📧 Automated Emails', '📅 Viewing Management', '📊 Market Reports',
+                '⛓️ Chain Progression', '🔒 AML Compliance', '📱 Social Media', '🌐 Custom Website',
+                '📞 Missed Call Follow-Up', '📝 Offer Management', '🏠 Portal Syndication', '💰 Fee Tracking',
               ].map((f, i) => (
                 <div key={i} style={{
                   padding:'8px 16px', borderRadius:'20px',
-                  background:'rgba(6,182,212,0.08)', border:'1px solid rgba(6,182,212,0.2)',
-                  fontSize:'13px', fontWeight:600, color:'#06b6d4',
+                  background:'rgba(6,182,212,0.1)', border:'1px solid rgba(6,182,212,0.25)',
+                  fontSize:'12px', fontWeight:600, color:'#22d3ee',
+                  backdropFilter:'blur(4px)',
                 }}>
                   {f}
                 </div>
               ))}
             </div>
 
-            <div className="key-stat">
-              <p>One AI system replaces half your tech stack and most of your admin. Listings, emails, viewings, compliance, marketing — all handled.</p>
-              <p className="stat-sub">Your agents focus on selling. anyOS handles everything else.</p>
+            {/* Bottom CTA */}
+            <div style={{
+              padding:'1.5rem 2rem', borderRadius:'16px',
+              background:'linear-gradient(135deg, rgba(6,182,212,0.1), rgba(99,102,241,0.08))',
+              border:'1px solid rgba(6,182,212,0.2)',
+              textAlign:'center', width:'100%',
+            }}>
+              <p style={{fontWeight:700, fontSize:'1rem', marginBottom:'0.3rem', color:'white'}}>One AI system replaces half your tech stack and most of your admin.</p>
+              <p style={{color:'rgba(255,255,255,0.4)', fontSize:'0.85rem'}}>Listings, emails, viewings, compliance, marketing — all handled. Your agents focus on selling.</p>
             </div>
           </div>
         </div>
