@@ -219,7 +219,6 @@ const OPTIONS = [
     unit: ' one-off',
     accent: '#8b5cf6',
     glow: 'rgba(139,92,246,0.4)',
-    popular: true,
     description: 'We build the entire system, then hand you the keys. Your data, your platform, your rules.',
     features: [
       'Full platform build & design',
@@ -597,18 +596,6 @@ export default function PukkaProposal() {
                     height: '100%',
                   }}
                 >
-                  {opt.popular && (
-                    <div style={{
-                      position: 'absolute', top: '-12px', left: '50%', transform: 'translateX(-50%)',
-                      background: 'linear-gradient(135deg, #8b5cf6, #6366f1)',
-                      padding: '4px 16px', borderRadius: '100px',
-                      fontSize: '0.6rem', fontWeight: 800, letterSpacing: '0.15em', textTransform: 'uppercase',
-                      whiteSpace: 'nowrap',
-                    }}>
-                      Most Popular
-                    </div>
-                  )}
-
                   <div style={{
                     background: '#0a0a0f', borderRadius: '18px', padding: '2.25rem',
                     height: '100%', display: 'flex', flexDirection: 'column',
